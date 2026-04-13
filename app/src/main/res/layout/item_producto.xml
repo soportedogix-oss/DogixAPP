@@ -1,0 +1,35 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- IMAGEN -->
+    <ImageView
+        android:id="@+id/imgProducto"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"/>
+
+    <!-- NOMBRE -->
+    <TextView
+        android:id="@+id/txtNombre"
+        android:text="Nombre"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- PRECIO -->
+    <TextView
+        android:id="@+id/txtPrecio"
+        android:text="S/ 0.00"
+        android:textColor="#4CAF50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
