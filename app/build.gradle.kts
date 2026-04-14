@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.dogix.app"
-    compileSdk = 36   // 🔥 IMPORTANTE (arregla tu error)
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.dogix.app"
         minSdk = 24
-        targetSdk = 35   // puedes dejarlo así
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
     }
@@ -31,26 +31,20 @@ android {
 
 dependencies {
 
-    // BASE
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    // 🔥 RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
-    // 🔥 Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
-    // 🔥 Glide (sin compiler para evitar errores)
     implementation("com.github.bumptech.glide:glide:5.0.5")
 
-    // 🔥 Lottie (opcional)
     implementation("com.airbnb.android:lottie:5.2.0")
 
-    // TEST
     testImplementation(libs.junit)
 }

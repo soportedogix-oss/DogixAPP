@@ -7,6 +7,6 @@ data class Venta(
     val cantidad: Int,
     val total: Double,
     val fecha: String,
-    val nombreProducto: String, // 🔥 CLAVE
-    val imagen: String          // 🔥 EXTRA (para luego mostrar imagen)
+    val nombreProducto: String,
+    val imagen: String
 )

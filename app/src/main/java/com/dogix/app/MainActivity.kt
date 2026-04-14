@@ -44,12 +44,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CarritoActivity::class.java))
         }
 
-        verificarSesion() // 🔥 CLAVE
+        verificarSesion() 
     }
 
     override fun onResume() {
         super.onResume()
-        verificarSesion() // 🔥 se actualiza al volver
+        verificarSesion()
     }
 
     private fun verificarSesion() {
