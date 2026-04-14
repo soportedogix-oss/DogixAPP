@@ -38,7 +38,6 @@
         app:layout_constraintTop_toBottomOf="@id/txtPrecio"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- ➖ -->
     <ImageView
         android:id="@+id/btnMenos"
         android:layout_width="40dp"
@@ -50,7 +49,6 @@
         app:layout_constraintTop_toBottomOf="@id/txtStock"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- 🔢 -->
     <TextView
         android:id="@+id/txtCantidad"
         android:layout_width="wrap_content"
@@ -62,7 +60,6 @@
         app:layout_constraintBottom_toBottomOf="@id/btnMenos"
         android:layout_marginStart="12dp"/>
 
-    <!-- ➕ -->
     <ImageView
         android:id="@+id/btnMas"
         android:layout_width="40dp"
@@ -74,7 +71,6 @@
         app:layout_constraintTop_toTopOf="@id/btnMenos"
         android:layout_marginStart="12dp"/>
 
-    <!-- ❌ -->
     <ImageView
         android:id="@+id/btnEliminar"
         android:layout_width="40dp"

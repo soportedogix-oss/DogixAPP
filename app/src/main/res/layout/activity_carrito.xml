@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- 🔥 TÍTULO -->
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="0dp"
@@ -20,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/txtTotal"/>
 
-    <!-- 💰 TOTAL -->
     <TextView
         android:id="@+id/txtTotal"
         android:layout_width="wrap_content"
@@ -33,7 +31,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 📦 MENSAJE VACÍO (NUEVO 🔥) -->
     <TextView
         android:id="@+id/txtVacio"
         android:layout_width="wrap_content"
@@ -47,7 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 🔥 LISTA -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCarrito"
         android:layout_width="0dp"
@@ -60,7 +56,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 🛒 BOTÓN COMPRAR -->
     <Button
         android:id="@+id/btnComprar"
         android:layout_width="0dp"

@@ -43,7 +43,7 @@ class ProductoAdapter(private val lista: List<Producto>) :
 
             val intent = Intent(context, DetalleProductoActivity::class.java)
 
-            // 🔥 FIX AQUÍ
+
             intent.putExtra("idProducto", item.id)
             intent.putExtra("nombre", item.nombre)
             intent.putExtra("descripcion", item.descripcion)

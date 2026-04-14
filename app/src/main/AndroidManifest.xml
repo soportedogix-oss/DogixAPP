@@ -11,9 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DogixAPP">
         <activity
-            android:name=".DetalleProductoActivity"
+            android:name=".VentasActivity"
             android:exported="false" />
-        <!-- 🔥 MAIN PRIMERO -->
+        <activity
+            android:name=".DetalleProductoActivity"
+            android:exported="false" /> <!-- 🔥 MAIN PRIMERO -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

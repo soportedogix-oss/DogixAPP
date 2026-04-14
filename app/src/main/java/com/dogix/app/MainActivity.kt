@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 🔥 FULL SCREEN
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         val controller = WindowInsetsControllerCompat(window, window.decorView)
@@ -37,12 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         cargarProductos()
 
-        // 🔐 LOGIN
         binding.btnIrLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        // 🛒 CARRITO
         binding.btnCarrito.setOnClickListener {
             startActivity(Intent(this, CarritoActivity::class.java))
         }
@@ -55,7 +52,6 @@ class MainActivity : AppCompatActivity() {
         verificarSesion() // 🔥 se actualiza al volver
     }
 
-    // 🔐 VERIFICAR SESIÓN
     private fun verificarSesion() {
 
         val prefs = getSharedPreferences("session", MODE_PRIVATE)
@@ -79,7 +75,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // 📋 MENÚ USUARIO
     private fun mostrarMenuUsuario() {
 
         val popup = PopupMenu(this, binding.txtUser)
@@ -104,7 +99,6 @@ class MainActivity : AppCompatActivity() {
         popup.show()
     }
 
-    // 📦 CARGAR PRODUCTOS
     private fun cargarProductos() {
 
         RetrofitClient.instance.listarProductos()

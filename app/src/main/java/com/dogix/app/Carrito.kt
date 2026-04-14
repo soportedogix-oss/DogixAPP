@@ -5,7 +5,7 @@ data class Carrito(
     val idProducto: Int,
     var cantidad: Int,
     val nombreProducto: String,
-    val imagen: String,   // 🔥 AGREGAR ESTO
+    val imagen: String,
     val precio: Double,
     val stock: Int
 )

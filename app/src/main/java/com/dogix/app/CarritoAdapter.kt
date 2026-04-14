@@ -43,7 +43,6 @@ class CarritoAdapter(
         holder.txtCantidad.text = item.cantidad.toString()
         holder.txtStock.text = "Stock: ${item.stock}"
 
-        // ➕ SUMAR
         holder.btnMas.setOnClickListener {
 
             val pos = holder.bindingAdapterPosition
@@ -62,7 +61,6 @@ class CarritoAdapter(
             }
         }
 
-        // ➖ RESTAR
         holder.btnMenos.setOnClickListener {
 
             val pos = holder.bindingAdapterPosition
@@ -78,7 +76,6 @@ class CarritoAdapter(
             }
         }
 
-        // ❌ ELIMINAR
         holder.btnEliminar.setOnClickListener {
 
             val pos = holder.bindingAdapterPosition
@@ -90,7 +87,6 @@ class CarritoAdapter(
         }
     }
 
-    // 🔥 ACTUALIZAR CANTIDAD
     private fun actualizarCantidad(item: Carrito) {
 
         val request = ActualizarCantidadRequest(
@@ -111,7 +107,6 @@ class CarritoAdapter(
             })
     }
 
-    // 🔥 ELIMINAR ITEM
     private fun eliminarItem(item: Carrito, position: Int, holder: ViewHolder) {
 
         RetrofitClient.instance.eliminarCarrito(item.idCarrito)

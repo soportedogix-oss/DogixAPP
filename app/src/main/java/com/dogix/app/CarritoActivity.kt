@@ -20,7 +20,6 @@ class CarritoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 🔥 FULLSCREEN MODERNO (EDGE TO EDGE)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         val controller = WindowInsetsControllerCompat(window, window.decorView)
@@ -36,6 +35,10 @@ class CarritoActivity : AppCompatActivity() {
         binding.recyclerCarrito.layoutManager = LinearLayoutManager(this)
 
         verificarSesionYCargar()
+
+        binding.btnComprar.setOnClickListener {
+            comprar()
+        }
     }
 
     override fun onResume() {
@@ -43,7 +46,6 @@ class CarritoActivity : AppCompatActivity() {
         cargarCarrito()
     }
 
-    // 🔐 VALIDAR SESIÓN
     private fun verificarSesionYCargar() {
 
         val prefs = getSharedPreferences("session", MODE_PRIVATE)
@@ -58,7 +60,6 @@ class CarritoActivity : AppCompatActivity() {
         }
     }
 
-    // 📦 CARGAR CARRITO
     private fun cargarCarrito() {
 
         val prefs = getSharedPreferences("session", MODE_PRIVATE)
@@ -76,14 +77,6 @@ class CarritoActivity : AppCompatActivity() {
 
                         val lista = response.body()!!.toMutableList()
 
-                        if (lista.isEmpty()) {
-                            Toast.makeText(
-                                this@CarritoActivity,
-                                "Carrito vacío 🛒",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-
                         binding.recyclerCarrito.adapter = CarritoAdapter(lista)
 
                     } else {
@@ -100,6 +93,47 @@ class CarritoActivity : AppCompatActivity() {
                         this@CarritoActivity,
                         "Error conexión: ${t.message}",
                         Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
+
+    private fun comprar() {
+
+        val prefs = getSharedPreferences("session", MODE_PRIVATE)
+        val idUsuario = prefs.getInt("id_usuario", 0)
+
+        RetrofitClient.instance.checkout(idUsuario)
+            .enqueue(object : Callback<MensajeResponse> {
+
+                override fun onResponse(
+                    call: Call<MensajeResponse>,
+                    response: Response<MensajeResponse>
+                ) {
+                    if (response.isSuccessful) {
+
+                        Toast.makeText(
+                            this@CarritoActivity,
+                            "Compra realizada 🧾",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        startActivity(Intent(this@CarritoActivity, VentasActivity::class.java))
+
+                    } else {
+                        Toast.makeText(
+                            this@CarritoActivity,
+                            "Error en compra",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<MensajeResponse>, t: Throwable) {
+                    Toast.makeText(
+                        this@CarritoActivity,
+                        "Error conexión",
+                        Toast.LENGTH_SHORT
                     ).show()
                 }
             })

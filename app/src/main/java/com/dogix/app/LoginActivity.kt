@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 🔥 FULLSCREEN (ANDROID 2024)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         val controller = WindowInsetsControllerCompat(window, window.decorView)
@@ -29,7 +28,6 @@ class LoginActivity : AppCompatActivity() {
         controller.systemBarsBehavior =
             WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 
-        // 🔗 VIEW BINDING
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -43,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
         val email = binding.edtEmail.text.toString().trim()
         val password = binding.edtPassword.text.toString().trim()
 
-        // ⚠️ VALIDACIÓN BÁSICA
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
             return
@@ -62,7 +59,6 @@ class LoginActivity : AppCompatActivity() {
 
                         val usuario = response.body()!!
 
-                        // 💾 Guardar sesión
                         val prefs = getSharedPreferences("session", MODE_PRIVATE)
                         prefs.edit()
                             .putInt("id_usuario", usuario.idUsuario)
@@ -70,14 +66,12 @@ class LoginActivity : AppCompatActivity() {
                             .putString("rol", usuario.rol)
                             .apply()
 
-                        // 🎯 Mensaje según rol
                         if (usuario.rol == "admin") {
                             Toast.makeText(this@LoginActivity, "Admin 👑", Toast.LENGTH_SHORT).show()
                         } else {
                             Toast.makeText(this@LoginActivity, "Cliente 🐶", Toast.LENGTH_SHORT).show()
                         }
 
-                        // 🚀 Ir a main
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
 

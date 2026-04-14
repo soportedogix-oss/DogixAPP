@@ -91,7 +91,7 @@ class DetalleProductoActivity : AppCompatActivity() {
                     override fun onFailure(call: Call<MensajeResponse>, t: Throwable) {
                         Toast.makeText(
                             this@DetalleProductoActivity,
-                            "Error conexión",
+                            "Error conexión: ${t.message}",
                             Toast.LENGTH_SHORT
                         ).show()
                     }

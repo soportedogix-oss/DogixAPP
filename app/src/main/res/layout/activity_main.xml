@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- 🔥 BARRA SUPERIOR -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -15,7 +14,6 @@
         android:paddingHorizontal="12dp"
         android:gravity="center_vertical">
 
-        <!-- 🐶 LOGO -->
         <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -23,7 +21,6 @@
             app:tint="#FFFFFF"
             android:contentDescription="Logo"/>
 
-        <!-- TEXTO -->
         <TextView
             android:text="DOGIX"
             android:textSize="18sp"
@@ -34,7 +31,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
-        <!-- 🔐 LOGIN -->
         <Button
             android:id="@+id/btnIrLogin"
             android:text="Login"
